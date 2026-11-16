@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "type": "user-provided-cv",
+    "receivedOn": "2026-11-16",
+    "asOf": "2026-11-16",
+    "verification": "Transcribed from the user's CV; publication and employment claims have not been independently verified."
+  },
+  "person": {
+    "name": "Yishen Liu",
+    "nameZh": null,
+    "email": "lysmeqiu@gmail.com",
+    "github": "https://github.com/Eeelyyy",
+    "scholar": "https://scholar.google.com/citations?user=XGDdV3gAAAAJ",
+    "portrait": null,
+    "cvPdf": null,
+    "researchInterests": [
+      "Computer Vision",
+      "Generative Models",
+      "Flow Matching",
+      "Generative Model Post-training",
+      "Inference-Time Alignment"
+    ],
+    "bio": "I am an M.Eng. student in Vehicle Engineering at Beijing Institute of Technology. My research focuses on generative models, including post-training and inference-time alignment for flow models. I am currently a research intern at vivo's Blueimage Lab.",
+    "bioNote": "Editorial summary of the supplied CV, current as of source.asOf."
+  },
+  "education": [
+    {
+      "id": "hit-incoming-phd",
+      "institution": "Harbin Institute of Technology (Shenzhen)",
+      "location": "Shenzhen, China",
+      "school": "School of Computer Science and Technology",
+      "degree": "Incoming Ph.D.",
+      "field": "Computer Vision",
+      "status": "incoming",
+      "expectedStart": "2027-09",
+      "dateLabel": "Sep. 2027 (Expected)"
+    },
+    {
+      "id": "bit-meng",
+      "institution": "Beijing Institute of Technology",
+      "location": "Beijing, China",
+      "school": "School of Mechanical and Vehicle Engineering",
+      "degree": "M.Eng.",
+      "field": "Vehicle Engineering",
+      "status": "ongoing",
+      "start": "2024-09",
+      "end": null,
+      "dateLabel": "Sep. 2024 – Present"
+    },
+    {
+      "id": "bit-bs",
+      "institution": "Beijing Institute of Technology",
+      "location": "Beijing, China",
+      "school": "Xu Teli College",
+      "degree": "B.S.",
+      "field": "Applied Physics",
+      "status": "completed",
+      "start": "2020-10",
+      "end": "2024-06",
+      "dateLabel": "Oct. 2020 – Jun. 2024"
+    }
+  ],
+  "internships": [
+    {
+      "id": "vivo",
+      "organization": "vivo",
+      "lab": "Blueimage Lab",
+      "role": "Research Intern",
+      "start": "2026-07",
+      "end": null,
+      "dateLabel": "Jul. 2026 – Present",
+      "topic": "Generative Model Post-training",
+      "description": "Research multi-task post-training for flow models, focusing on distillation and reinforcement learning."
+    },
+    {
+      "id": "meitu",
+      "organization": "Meitu",
+      "lab": "MT Lab",
+      "role": "Research Intern",
+      "start": "2026-02",
+      "end": "2026-05",
+      "dateLabel": "Feb. 2026 – May 2026",
+      "topic": "Generative Model Post-training",
+      "description": "Developed an inference-time alignment method for flow models (FlowSteer)."
+    }
+  ],
+  "publications": [
+    {
+      "id": "groundinganomaly",
+      "title": "GroundingAnomaly: Spatially-Grounded Diffusion for Few-Shot Anomaly Synthesis",
+      "authorsDisplay": "Yishen Liu et al.",
+      "fullAuthorList": null,
+      "venue": "ECCV 2026",
+      "status": "accepted",
+      "statusLabel": "Accepted to ECCV 2026",
+      "arxiv": "https://arxiv.org/abs/2604.08301",
+      "code": "https://github.com/Eeelyyy/GroundingAnomaly",
+      "projectPage": null,
+      "image": null,
+      "researchId": "industrial-anomaly"
+    },
+    {
+      "id": "flowsteer",
+      "title": "FlowSteer: Inference-Time Alignment of Flow Matching Models with Learned Process Rewards",
+      "authorsDisplay": "Yishen Liu et al.",
+      "fullAuthorList": null,
+      "venue": "CVPR 2027",
+      "status": "submitted",
+      "statusLabel": "Submitted to CVPR 2027",
+      "arxiv": null,
+      "code": null,
+      "projectPage": null,
+      "image": null,
+      "researchId": "flowsteer"
+    }
+  ],
+  "research": [
+    {
+      "id": "flowsteer",
+      "title": "FlowSteer: Inference-Time Alignment for Generative Models",
+      "organization": "Meitu Inc",
+      "type": "Internship Research",
+      "role": "Project Lead",
+      "start": "2025-11",
+      "end": "2026-05",
+      "dateLabel": "Nov. 2025 – May 2026",
+      "overview": "Designed an inference-time alignment method based on a process reward model (PRM). With generator weights frozen, the method scores, guides, and resamples noisy latent states at arbitrary timesteps to improve human-preference scores.",
+      "contributions": [
+        {
+          "label": "Process reward model",
+          "description": "Proposed and trained a PRM on noisy latents, combining the Plackett-Luce loss for ranking with the Soft Bradley-Terry loss for calibrating reward-guidance gradients."
+        },
+        {
+          "label": "FlowSteer",
+          "description": "Built an inference-time algorithm combining PRM gradient reward guidance with Feynman-Kac resampling. PRM gradients guide candidate-state generation, while PRM scores define the resampling potential for state screening, steering samples toward human preferences."
+        },
+        {
+          "label": "Experiments",
+          "description": "On SD3.5-Medium, achieved 0.97 GenEval, 0.96 OCR, and 23.91 PickScore using 1/3 GPU hour; overall performance was comparable to or better than state-of-the-art train-time fine-tuning methods."
+        }
+      ],
+      "metrics": [
+        { "name": "GenEval", "value": 0.97 },
+        { "name": "OCR", "value": 0.96 },
+        { "name": "PickScore", "value": 23.91 }
+      ],
+      "evaluationContext": {
+        "model": "SD3.5-Medium",
+        "computeAsStated": "1/3 GPU hour",
+        "gpuModel": null,
+        "sampleCount": null,
+        "note": "Only the supplied CV supports these figures; do not extrapolate missing evaluation conditions."
+      },
+      "outputs": ["One paper under review at CVPR 2027."],
+      "publicationId": "flowsteer"
+    },
+    {
+      "id": "industrial-anomaly",
+      "title": "Industrial Anomaly Image Generation",
+      "organization": "Li Auto",
+      "type": "University-Industry Joint Project",
+      "role": "Student Lead",
+      "start": "2025-05",
+      "end": "2025-11",
+      "dateLabel": "May 2025 – Nov. 2025",
+      "overview": "Designed and deployed a Stable Diffusion-based few-shot framework to generate high-quality anomalous images with pixel-level masks, augmenting scarce industrial anomaly data and improving downstream anomaly detection.",
+      "contributions": [
+        {
+          "label": "Algorithm",
+          "description": "Designed a Spatial Conditioning Module that fuses disentangled product and anomaly embeddings with a pixel-level semantic map to control anomaly location and class. Designed a gated self-attention module to inject these conditions into U-Net attention layers, enabling efficient few-shot adaptation of a frozen pretrained U-Net and pixel-level masked anomaly synthesis."
+        },
+        {
+          "label": "Experiments and deployment",
+          "description": "Evaluated the method on two public datasets and multiple private Li Auto scenarios, achieving state-of-the-art generation quality and downstream detection metrics. Deployed the method in multiple production inspection scenarios; it improved detection performance with only 10% of the data required by traditional methods, and enabled anomaly-data generation without real anomalous samples in various scenarios."
+        }
+      ],
+      "outputs": [
+        "One paper accepted to ECCV 2026.",
+        "Two patent applications under review."
+      ],
+      "publicationId": "groundinganomaly"
+    }
+  ],
+  "skills": {
+    "languages": [
+      "English: CET-4 (609), IELTS 7.0",
+      "Experienced in academic writing, with strong English reading and communication skills"
+    ],
+    "programming": ["Python", "PyTorch"],
+    "tools": ["Codex", "OpenCode"],
+    "research": [
+      "Information retrieval, organization, and analysis",
+      "Fast learner and self-motivated",
+      "Experience writing papers and patent applications"
+    ]
+  },
+  "interests": ["Fitness", "Badminton", "Volleyball"],
+  "otherExperience": ["Represented Beijing Institute of Technology's badminton team."],
+  "news": []
+}

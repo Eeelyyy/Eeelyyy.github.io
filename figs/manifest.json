@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "source": "User-provided visual references",
+  "originalsMustRemainUnchanged": true,
+  "assets": [
+    {
+      "id": "shadow",
+      "filename": "墙角斜影中的小圆生物-1.png",
+      "description": "A small dark figure stands between a textured pale wall and a large diagonal shadow.",
+      "suggestedUse": "Layout, contrast, and negative space; optional opening image.",
+      "path": "figs/墙角斜影中的小圆生物-1.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2180582,
+      "sha256": "5c718ca703ee867c1d45061fe8a7b8e4d6effb8e54c02700b0bee41373f95d08",
+      "derivatives": []
+    },
+    {
+      "id": "crosswalk",
+      "filename": "黄小兽撑红伞过街-2.png",
+      "description": "A yellow creature carrying a red umbrella crosses broad white stripes on a dark road.",
+      "suggestedUse": "Primary hero candidate; preserve the umbrella and crosswalk geometry.",
+      "path": "figs/黄小兽撑红伞过街-2.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1923365,
+      "sha256": "d5d43100c2d1486e6e0f0772a44bce098f0ef858b094d1517ee7b9ff60efef1c",
+      "derivatives": []
+    },
+    {
+      "id": "red-sea",
+      "filename": "红海十字架上的黄色圆兽-3.png",
+      "description": "A yellow creature is tied to a cross above a red sea, beneath a blue sky and white clouds.",
+      "suggestedUse": "Optional secondary artwork; preserve the composition without assigning personal meaning.",
+      "path": "figs/红海十字架上的黄色圆兽-3.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2310371,
+      "sha256": "dd969eb251523640047444766dd1203a88816c8c09142c076054c6cc89f1547f",
+      "derivatives": []
+    },
+    {
+      "id": "vortex",
+      "filename": "青色圆润生物与红黑漩涡-4.png",
+      "description": "A pale cyan creature and luminous rings stand against a red and black vortex.",
+      "suggestedUse": "Optional chapter transition or secondary artwork.",
+      "path": "figs/青色圆润生物与红黑漩涡-4.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2728082,
+      "sha256": "98a903029fa79acc68621060b5721576efbe756662ed05d6e441a72bcdddedbe",
+      "derivatives": []
+    },
+    {
+      "id": "shore",
+      "filename": "小黄团子眺望红色海浪-5.png",
+      "description": "A small yellow creature seen from behind looks out at red waves and white sea foam.",
+      "suggestedUse": "About or closing artwork; retain the small figure and the wave edge.",
+      "path": "figs/小黄团子眺望红色海浪-5.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2875467,
+      "sha256": "88c2657516398221e97e6797cb23686e7eeeba29a940185291f05df674394ff8",
+      "derivatives": []
+    }
+  ]
+}

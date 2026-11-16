@@ -1,0 +1,17 @@
+# Local source material and authentication reports; never publish.
+/private/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Generated output and local tooling.
+/dist/
+/node_modules/
+/.cache/
+/artifacts/
+/screenshots/
+*.log
+.DS_Store
+Thumbs.db

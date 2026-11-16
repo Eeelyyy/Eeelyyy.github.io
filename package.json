@@ -1,0 +1,13 @@
+{
+  "name": "yishen-liu-homepage",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "GitHub Pages homepage and Codex reference workspace for Yishen Liu",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "check": "node scripts/check.mjs",
+    "build": "node scripts/build.mjs"
+  }
+}

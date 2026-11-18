@@ -1,11 +1,14 @@
-import { copyFileSync, existsSync, lstatSync, mkdirSync, realpathSync, rmSync } from 'node:fs';
+import { copyFileSync, existsSync, lstatSync, mkdirSync, readFileSync, realpathSync, rmSync } from 'node:fs';
 import { basename, dirname, join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { renderProfile } from './profile-html.mjs';
 import { output, publicFiles, root, sourceFile } from './site-files.mjs';
 
 export function build() {
   const files = publicFiles();
   if (!files.includes('index.html')) throw new Error('index.html is required.');
+  const html = readFileSync(sourceFile('index.html'), 'utf8');
+  if (renderProfile(html) !== html) throw new Error('Profile HTML is stale. Run npm run content first.');
   // Verify the exact deletion target before rebuilding this generated directory.
   if (dirname(output) !== root || basename(output) !== 'dist') {
     throw new Error('Build output must be the workspace dist directory.');

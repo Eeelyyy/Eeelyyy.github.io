@@ -1,137 +1,102 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Liu Yishen</title>
-  <meta name="description" content="Liu Yishen">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#f7f8fb; --card:#ffffff; --muted:#617083; --accent:#2563eb; --glass: rgba(255,255,255,0.6);
-      --radius:14px; --maxw:1100px;
-    }
-    [data-theme="dark"]{ --bg:#0b1020; --card:#0f1724; --muted:#9aa8c0; --accent:#60a5fa; --glass: rgba(255,255,255,0.03); }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      background:linear-gradient(180deg,var(--bg), #eef3ff 120%); color:var(--muted);
-      display:flex; align-items:center; justify-content:center; padding:36px;
-    }
-    .wrap{width:100%; max-width:var(--maxw);}
-    header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:28px}
-    .brand{display:flex; gap:14px; align-items:center}
-    .logo{width:56px; height:56px; border-radius:12px; background:linear-gradient(135deg,var(--accent), #7c3aed); display:grid; place-items:center; color:white; font-weight:700; font-size:18px}
-    h1{margin:0; font-size:20px; color:var(--card); font-weight:700}
-    .hdr-sub{font-size:13px; color:var(--muted)}
-    nav{display:flex; gap:8px}
-    .btn{display:inline-flex; gap:8px; align-items:center; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600}
-    .btn-ghost{background:transparent; color:var(--muted)}
-    .btn-primary{background:var(--accent); color:white; box-shadow: 0 6px 18px rgba(37,99,235,0.14)}
-
-    main{display:grid; grid-template-columns:1fr 380px; gap:28px; align-items:start}
-    .card{background:var(--card); border-radius:var(--radius); padding:20px; box-shadow: 0 6px 18px rgba(12,20,40,0.06)}
-
-    .hero{padding:24px; display:flex; flex-direction:column; gap:12px}
-    .name{font-size:32px; margin:0; color:var(--muted); font-weight:800}
-    .subtitle{margin:0; color:var(--muted); font-size:15px}
-    .links{display:flex; gap:10px; margin-top:8px}
-
-    .summary{margin-top:8px; color:var(--muted); line-height:1.6}
-
-    .projects{display:grid; gap:12px; margin-top:14px}
-    .project{display:flex; justify-content:space-between; gap:12px; align-items:center; padding:12px; border-radius:10px; background:var(--glass)}
-    .project h3{margin:0; font-size:14px; color:var(--muted)}
-    .project p{margin:0; font-size:13px; color:var(--muted)}
-
-    aside .profile{display:flex; gap:14px; align-items:center}
-    .avatar{width:84px; height:84px; border-radius:12px; background:linear-gradient(135deg,#fff,#f0f4ff); display:grid; place-items:center; font-weight:700; color:var(--accent)}
-    .meta{display:flex; flex-direction:column}
-    .meta .who{font-size:18px; margin:0; color:var(--muted); font-weight:700}
-    .meta .what{font-size:13px; color:var(--muted); margin-top:6px}
-    .contact{margin-top:18px; display:flex; gap:10px; flex-direction:column}
-    .contact a{display:inline-flex; gap:10px; align-items:center; padding:10px 12px; border-radius:10px; text-decoration:none; color:var(--muted); background:var(--glass)}
-
-    footer{margin-top:20px; text-align:center; color:var(--muted); font-size:13px}
-
-    .theme-toggle{background:transparent; border:1px solid rgba(255,255,255,0.06); padding:8px; border-radius:10px; cursor:pointer}
-
-    @media (max-width:900px){ main{grid-template-columns:1fr; } .logo{width:48px;height:48px} }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ef">
+  <meta name="description" content="Yishen Liu — computer vision, generative models, and a little curiosity. M.Eng. student at Beijing Institute of Technology; research intern at vivo Blueimage Lab.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Yishen Liu — A little curiosity.">
+  <meta property="og:description" content="Research in computer vision, generative models, and inference-time alignment.">
+  <meta property="og:url" content="https://eeelyyy.github.io/">
+  <meta property="og:image" content="https://eeelyyy.github.io/assets/images/crosswalk-1280.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://eeelyyy.github.io/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/main.js" defer></script>
+  <title>Yishen Liu — A little curiosity.</title>
 </head>
 <body>
-  <div class="wrap" id="page">
-    <header>
-      <div class="brand">
-        <div class="logo">LY</div>
-        <div>
-          <h1>Liu Yishen</h1>
-          <div class="hdr-sub">Beijing Institute of Technology</div>
-        </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <header class="site-header wrap">
+    <a class="wordmark" href="#home" aria-label="Yishen Liu, home"><span class="monogram">YL<span></span></span><span class="wordmark-text">YISHEN LIU<span>PERSONAL RESEARCH LOG</span></span></a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="#research">Research<span>01</span></a><a href="#journey">Journey<span>02</span></a><a href="#about">Off-duty<span>03</span></a></nav>
+    <a class="header-contact" href="#contact">Say hello <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="main">
+    <section class="hero wrap" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="red-dot"></span> COMPUTER VISION & GENERATIVE MODELS</p>
+        <!-- profile:hero:start -->
+<h1 id="hero-title">Yishen<br>Liu<span class="name-period">.</span></h1>
+        <p class="hero-tagline">A little curiosity.<br><em>A world of possibilities.</em></p>
+        <p class="hero-bio">I am an M.Eng. student in Vehicle Engineering at Beijing Institute of Technology. My research focuses on generative models, including post-training and inference-time alignment for flow models. I am currently a research intern at vivo&#39;s Blueimage Lab.</p>
+        <div class="hero-links"><a class="primary-link" href="#research">Explore my research <span aria-hidden="true">↘</span></a><a class="text-link" href="https://scholar.google.com/citations?user=XGDdV3gAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a></div>
+<!-- profile:hero:end -->
+        <div class="hero-bottom"><span class="mono">BASED IN CHINA</span><a class="scroll-link" href="#research">Scroll to explore <span aria-hidden="true">↓</span></a></div>
       </div>
-      <nav>
-        <button id="themeBtn" class="btn theme-toggle" title="Dark/Light">Theme</button>
-      </nav>
-    </header>
-
-    <main>
-      <section class="card">
-        <div class="hero">
-          <p class="name">I'm Liu Yishen</p>
-          <p class="subtitle">Computer Vision, Generative Models</p>
-          <div class="links">
-            <a class="btn btn-primary" href="mailto:3220240443@bit.edu.cn">Email</a>
-            <a class="btn btn-ghost" href="https://github.com/Eeelyyy" target="_blank" rel="noopener">GitHub</a>
+      <div class="hero-visual">
+        <div class="visual-topline mono"><span><i class="status-dot"></i> A LITTLE CURIOSITY.</span><span>FIELD NOTES — 001</span></div>
+        <div class="playground" id="playground">
+          <div class="art-window" id="art-window" role="region" aria-label="Nailong artwork gallery" aria-roledescription="carousel">
+            <figure class="art-scene is-active" data-scene="0" aria-label="1 of 3: The crossing"><img src="assets/images/crosswalk-1280.webp" srcset="assets/images/crosswalk-640.webp 640w, assets/images/crosswalk-1280.webp 1280w, assets/images/crosswalk-1672.webp 1672w" sizes="(max-width: 760px) 92vw, 50vw" width="1672" height="941" alt="A little yellow Nailong carrying a red umbrella across a stark black-and-white crosswalk." fetchpriority="high" draggable="false"></figure>
+            <figure class="art-scene" data-scene="1" aria-label="2 of 3: The red shore" aria-hidden="true" inert><img src="assets/images/shore-1280.webp" srcset="assets/images/shore-640.webp 640w, assets/images/shore-1280.webp 1280w, assets/images/shore-1672.webp 1672w" sizes="(max-width: 760px) 92vw, 50vw" width="1672" height="941" alt="A little yellow Nailong looking out at red waves and white sea foam." loading="lazy" draggable="false"></figure>
+            <figure class="art-scene" data-scene="2" aria-label="3 of 3: Light and shadow" aria-hidden="true" inert><img src="assets/images/shadow-1280.webp" srcset="assets/images/shadow-640.webp 640w, assets/images/shadow-1280.webp 1280w, assets/images/shadow-1672.webp 1672w" sizes="(max-width: 760px) 92vw, 50vw" width="1672" height="941" alt="Nailong's small silhouette beneath a large diagonal shadow on a pale wall." loading="lazy" draggable="false"></figure>
+            <div class="art-corner corner-tl" aria-hidden="true"></div><div class="art-corner corner-br" aria-hidden="true"></div>
+            <div class="scene-caption"><span class="mono">SCENE <span id="scene-number">01</span> / 03</span><span id="scene-name">The crossing.</span></div>
           </div>
-          <p class="summary">Glad to see you here, you can contact me via Email and Github.</p>
+          <canvas id="field-canvas" aria-hidden="true"></canvas>
+          <div class="field-label mono" aria-hidden="true">A.T. FIELD <span>ACTIVATED</span></div>
+          <button class="nailong" id="nailong" type="button" aria-label="Play with Nailong" aria-describedby="play-help" hidden>
+            <svg viewBox="0 0 180 210" fill="none" aria-hidden="true">
+              <defs><linearGradient id="body-yellow" x1="43" y1="45" x2="143" y2="172" gradientUnits="userSpaceOnUse"><stop stop-color="#ffe66a"/><stop offset=".48" stop-color="#ffd128"/><stop offset="1" stop-color="#eaa313"/></linearGradient><linearGradient id="face-yellow" x1="61" y1="30" x2="131" y2="103" gradientUnits="userSpaceOnUse"><stop stop-color="#fff18c"/><stop offset=".55" stop-color="#ffdc39"/><stop offset="1" stop-color="#f9c526"/></linearGradient></defs>
+              <ellipse class="nailong-shadow" cx="90" cy="198" rx="49" ry="7" fill="#111" opacity=".15"/>
+              <g class="nailong-character">
+                <path d="M128 138c21 0 34-13 33-28 11 27-1 52-30 54" fill="#efb41b" stroke="#bc851d" stroke-width="1.2"/><path d="m144 136 4-11 7 7m-14 13 8-5 1 9" fill="#d7931e"/>
+                <path d="M57 167c-1 10-5 18-6 23-9 0-13 3-11 7 6 5 27 3 32-1 5-5 6-16 9-24m25-1c2 10 4 20 8 24 6 5 26 5 31 1 2-4-6-7-12-7l-4-22" fill="#efb724" stroke="#c48d1e" stroke-width="1.2"/>
+                <path d="M62 82c-14 9-28 40-24 67 3 28 25 39 51 39 30 0 51-13 53-39 2-22-10-53-27-66" fill="url(#body-yellow)" stroke="#d4a024" stroke-width="1.2"/><ellipse cx="89" cy="151" rx="31" ry="25" fill="#ffe775" opacity=".55"/>
+                <path class="nailong-arm arm-left" d="M48 109c-11 7-18 25-15 35 2 7 9 4 12-2l8-18" fill="#ffd12f" stroke="#d4a024" stroke-width="1.2"/><path class="nailong-arm arm-right" d="M128 109c12 7 19 25 16 35-2 7-9 4-12-2l-8-18" fill="#f7c32a" stroke="#d4a024" stroke-width="1.2"/>
+                <path d="M51 65c0-27 16-42 37-42 25 0 42 15 42 40 0 9 10 14 9 26-1 17-21 24-48 24-25 0-48-9-48-25 0-9 8-15 8-23Z" fill="url(#face-yellow)" stroke="#d4a024" stroke-width="1.2"/><path d="M62 46c5-10 14-15 26-15" stroke="#fff5bc" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+                <g class="nailong-eyes"><ellipse cx="73" cy="65" rx="10" ry="13" fill="#fffdf2"/><ellipse cx="103" cy="65" rx="10" ry="13" fill="#fffdf2"/><g class="nailong-pupils"><ellipse cx="76" cy="67" rx="4.4" ry="6.5" fill="#25231d"/><ellipse cx="100" cy="67" rx="4.4" ry="6.5" fill="#25231d"/><circle cx="77" cy="65" r="1.3" fill="white"/><circle cx="101" cy="65" r="1.3" fill="white"/></g></g>
+                <ellipse cx="62" cy="86" rx="9" ry="5" fill="#f5ad35" opacity=".5"/><ellipse cx="116" cy="86" rx="9" ry="5" fill="#f5ad35" opacity=".5"/><path class="nailong-mouth" d="M77 91q12 11 24 0" stroke="#765016" stroke-width="2.5" stroke-linecap="round"/><circle cx="84" cy="81" r="1.5" fill="#bc8a26"/><circle cx="94" cy="81" r="1.5" fill="#bc8a26"/>
+              </g>
+            </svg>
+          </button>
+          <div class="mascot-note mono" aria-hidden="true"><span>↖</span> YOUR SMALL<br>RESEARCH COMPANION.</div>
         </div>
-
-    
-
-      <aside class="card">
-        <div class="profile">
-          <div class="avatar">LY</div>
-          <div class="meta">
-            <p class="who">Liu Yishen</p>
-            <p class="what">Beijing Institute of Technology</p>
-          </div>
-        </div>
-
-        <div id="contact" class="contact">
-          <a href="mailto:3220240443@bit.edu.cn" aria-label="Mail Liu Yishen">✉ 3220240443@bit.edu.cn</a>
-          <a href="https://github.com/Eeelyyy" target="_blank" rel="noopener" aria-label="Visit GitHub"> GitHub /Eeelyyy</a>
-        </div>
-
-        
-
-        
-      </aside>
-    </main>
-  </div>
-
-  <script>
-    // dark / light theme
-    const root = document.documentElement;
-    const page = document.getElementById('page');
-    const themeBtn = document.getElementById('themeBtn');
-    const stored = localStorage.getItem('theme');
-    if(stored === 'dark') document.documentElement.setAttribute('data-theme','dark');
-    function toggle(){
-      if(document.documentElement.getAttribute('data-theme') === 'dark'){
-        document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('theme','light');
-      } else {
-        document.documentElement.setAttribute('data-theme','dark');
-        localStorage.setItem('theme','dark');
-      }
-    }
-    themeBtn.addEventListener('click', toggle);
-
-    // set year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+        <div class="play-controls" hidden><p id="play-help"><span class="mini-cross" aria-hidden="true">✳</span> Drag Nailong. Tap for an A.T. field.<span class="sr-only"> Use arrow keys to move Nailong, Enter or Space to activate, and Escape to return home.</span></p><div class="scene-controls" role="group" aria-label="Choose artwork"><button type="button" data-select-scene="0" aria-label="The crossing" aria-pressed="true">01</button><button type="button" data-select-scene="1" aria-label="The red shore" aria-pressed="false">02</button><button type="button" data-select-scene="2" aria-label="Light and shadow" aria-pressed="false">03</button></div></div>
+        <p class="sr-only" id="play-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+    <div class="focus-strip wrap" aria-label="Research interests"><span class="mono focus-label">CURRENT ORBIT</span><!-- profile:interests:start -->
+<p><span>Computer Vision</span><span>Generative Models</span><span>Flow Matching</span><span>Generative Model Post-training</span><span>Inference-Time Alignment</span></p>
+<!-- profile:interests:end --><span class="orbit-mark" aria-hidden="true">↗</span></div>
+    <section class="research section wrap" id="research" aria-labelledby="research-title"><div class="section-heading"><div><p class="eyebrow"><span class="section-number">01 /</span> SELECTED WORK</p><h2 id="research-title">Ideas into <em>images.</em></h2></div><p class="section-intro">Exploring how generative models<br>can see, create, and align.</p></div><div class="research-list"><!-- profile:research:start -->
+<article class="research-item reveal" id="groundinganomaly">
+          <div class="research-index mono">01<span>ECCV 2026</span></div>
+          <div class="research-body"><span class="publication-status accepted">Accepted to ECCV 2026</span><h3>GroundingAnomaly<span>Spatially-Grounded Diffusion for Few-Shot Anomaly Synthesis</span></h3><p class="authors">Yishen Liu et al.</p><p class="research-summary">Designed and deployed a Stable Diffusion-based few-shot framework to generate high-quality anomalous images with pixel-level masks, augmenting scarce industrial anomaly data and improving downstream anomaly detection.</p>
+          <details class="research-detail"><summary>Inside the research <span aria-hidden="true">+</span></summary><div class="detail-body"><p class="project-meta mono">University-Industry Joint Project / Student Lead<br>Li Auto · May 2025 – Nov. 2025</p><div><h4>Algorithm</h4><p>Designed a Spatial Conditioning Module that fuses disentangled product and anomaly embeddings with a pixel-level semantic map to control anomaly location and class. Designed a gated self-attention module to inject these conditions into U-Net attention layers, enabling efficient few-shot adaptation of a frozen pretrained U-Net and pixel-level masked anomaly synthesis.</p></div></div></details></div>
+          <div class="paper-links"><a class="" href="https://arxiv.org/abs/2604.08301" target="_blank" rel="noopener noreferrer">Paper <span aria-hidden="true">↗</span></a><a class="" href="https://github.com/Eeelyyy/GroundingAnomaly" target="_blank" rel="noopener noreferrer">Code <span aria-hidden="true">↗</span></a></div>
+        </article>
+<article class="research-item reveal" id="flowsteer">
+          <div class="research-index mono">02<span>CVPR 2027</span></div>
+          <div class="research-body"><span class="publication-status submitted">Submitted to CVPR 2027 · Under review</span><h3>FlowSteer<span>Inference-Time Alignment of Flow Matching Models with Learned Process Rewards</span></h3><p class="authors">Yishen Liu et al.</p><p class="research-summary">Designed an inference-time alignment method based on a process reward model (PRM). With generator weights frozen, the method scores, guides, and resamples noisy latent states at arbitrary timesteps to improve human-preference scores.</p>
+          <details class="research-detail"><summary>Inside the research <span aria-hidden="true">+</span></summary><div class="detail-body"><p class="project-meta mono">Internship Research / Project Lead<br>Meitu Inc · Nov. 2025 – May 2026</p><div><h4>Process reward model</h4><p>Proposed and trained a PRM on noisy latents, combining the Plackett-Luce loss for ranking with the Soft Bradley-Terry loss for calibrating reward-guidance gradients.</p></div><div><h4>FlowSteer</h4><p>Built an inference-time algorithm combining PRM gradient reward guidance with Feynman-Kac resampling. PRM gradients guide candidate-state generation, while PRM scores define the resampling potential for state screening, steering samples toward human preferences.</p></div></div></details></div>
+          <div class="paper-links pending-note mono">MANUSCRIPT<br>UNDER REVIEW</div>
+        </article>
+<!-- profile:research:end --></div></section>
+    <section class="journey section" id="journey" aria-labelledby="journey-title"><div class="wrap journey-grid"><div class="journey-aside"><p class="eyebrow"><span class="section-number">02 /</span> THE JOURNEY</p><h2 id="journey-title">A path in<br><em>progress.</em></h2><p>Learning by building.<br>Moving with curiosity.</p><figure class="journey-art"><img src="assets/images/shadow-640.webp" width="1672" height="941" alt="A small Nailong silhouette at the edge of light and shadow." loading="lazy"><figcaption class="mono">FIG. 02 — BETWEEN LIGHT & POSSIBILITY</figcaption></figure></div><div class="timeline"><!-- profile:journey:start -->
+<h3 class="timeline-label mono">RESEARCH EXPERIENCE</h3><article class="timeline-row reveal"><p class="timeline-date mono">Jul. 2026 – Present</p><h4>vivo <span>/ Blueimage Lab</span></h4><p class="timeline-role">Research Intern · Generative Model Post-training</p><p class="timeline-description">Research multi-task post-training for flow models, focusing on distillation and reinforcement learning.</p></article><article class="timeline-row reveal"><p class="timeline-date mono">Feb. 2026 – May 2026</p><h4>Meitu <span>/ MT Lab</span></h4><p class="timeline-role">Research Intern · Generative Model Post-training</p><p class="timeline-description">Developed an inference-time alignment method for flow models (FlowSteer).</p></article>
+          <h3 class="timeline-label education-label mono">EDUCATION</h3><article class="timeline-row reveal incoming"><p class="timeline-date mono">Sep. 2027 (Expected) <span class="incoming-label">UP NEXT</span></p><h4>Harbin Institute of Technology (Shenzhen)</h4><p class="timeline-role">Incoming Ph.D. in Computer Vision</p><p class="timeline-description">School of Computer Science and Technology</p></article><article class="timeline-row reveal "><p class="timeline-date mono">Sep. 2024 – Present</p><h4>Beijing Institute of Technology</h4><p class="timeline-role">M.Eng. in Vehicle Engineering</p><p class="timeline-description">School of Mechanical and Vehicle Engineering</p></article><article class="timeline-row reveal "><p class="timeline-date mono">Oct. 2020 – Jun. 2024</p><h4>Beijing Institute of Technology</h4><p class="timeline-role">B.S. in Applied Physics</p><p class="timeline-description">Xu Teli College</p></article>
+<!-- profile:journey:end --></div></div></section>
+    <section class="about section wrap" id="about" aria-labelledby="about-title"><figure class="about-art"><img src="assets/images/shore-1280.webp" srcset="assets/images/shore-640.webp 640w, assets/images/shore-1280.webp 1280w" sizes="(max-width: 760px) 92vw, 45vw" width="1672" height="941" alt="Nailong taking a quiet moment beside an otherworldly red sea." loading="lazy"><figcaption class="mono"><span>SMALL CREATURE. BIG WORLD.</span><span>FIG. 03</span></figcaption></figure><div class="about-copy"><p class="eyebrow"><span class="section-number">03 /</span> OFF-DUTY</p><h2 id="about-title">Beyond the<br><em>screen.</em></h2><!-- profile:about:start -->
+<p>Outside research, I enjoy fitness, badminton, and volleyball.</p><p>Represented Beijing Institute of Technology&#39;s badminton team.</p><div class="interest-tags"><span>Fitness</span><span>Badminton</span><span>Volleyball</span></div><p class="tool-note mono">WORKING WITH Python / PyTorch</p>
+<!-- profile:about:end --><p class="small-note">A little yellow companion, a touch of EVA,<br>and room to stay curious.</p></div></section>
+  </main>
+  <footer class="contact" id="contact"><div class="wrap"><div class="contact-top"><p class="eyebrow">NEXT CONVERSATION /</p><a class="back-top mono" href="#home">BACK TO TOP ↑</a></div><div class="contact-main"><h2>Let’s talk<br><em>research.</em><span class="contact-star" aria-hidden="true">✳</span></h2><!-- profile:contact:start -->
+<div class="contact-links"><a class="email-link" href="mailto:lysmeqiu@gmail.com">lysmeqiu@gmail.com <span aria-hidden="true">↗</span></a><div class="social-links"><a class="" href="https://github.com/Eeelyyy" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a class="" href="https://scholar.google.com/citations?user=XGDdV3gAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a></div><p class="mono">COMPUTER VISION / GENERATIVE MODELS</p></div>
+<!-- profile:contact:end --></div><div class="footer-bottom"><span class="mono">© <span id="year">2026</span> YISHEN LIU</span><span class="footer-signoff">Made with curiosity. Accompanied by Nailong.</span><button class="motion-toggle mono" id="motion-toggle" type="button" aria-pressed="false" hidden><span class="motion-indicator" aria-hidden="true"></span><span id="motion-label">MOTION ON</span></button></div></div></footer>
 </body>
 </html>

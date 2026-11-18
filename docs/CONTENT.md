@@ -44,5 +44,7 @@
 
 1. 接到新 CV 时保留原文于 `private/`，更新 `profile.json` 的相关条目和 `source` 日期。
 2. 保持现有稳定 ID，检查论文与研究项目的关联；日期字段使用 `YYYY-MM`，显示用 `dateLabel`。
-3. 更新实际页面中使用的内容。当前旧 `index.html` 尚未接入 JSON，不能以为修改数据就会修改旧页面。
+3. 运行 `npm run content`，由 `scripts/profile-html.mjs` 把公开资料写入 `index.html` 的 `profile:*` 标记区。修改展示方式时编辑生成器；修改事实时编辑 JSON。网页无需浏览器脚本或 JSON 请求即可显示简介、论文、履历与联系入口。
 4. 运行 `npm run check`。缺少公开链接时隐藏按钮，不生成占位 URL。
+
+当前主页不展示缺少完整实验上下文的指标，也不生成不存在的 PDF 下载或论文配图。研究项目日期保留在论文的“Inside the research”展开区；实习日期在 Journey 独立显示。`check` 与 `build` 会拒绝 JSON 和静态 HTML 不一致的版本。

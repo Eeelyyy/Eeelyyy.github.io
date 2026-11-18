@@ -2,7 +2,7 @@
 
 这是 `Eeelyyy/Eeelyyy.github.io` 的本地开发工作区，网站继续使用 [eeelyyy.github.io](https://eeelyyy.github.io/)。
 
-已整理 Codex 工作约定、CV 数据和视觉参考。当前 `index.html` 保留原站，尚未进行视觉重设计。
+奶龙 × EVA 极简研究主页：暖白留白、黑白图像、红黄点色，配有可拖拽的奶龙、弹性归位、点击 AT 力场和三幅艺术场景。英文资料来自用户 CV；继续使用 GitHub Pages。
 
 ## 开始
 
@@ -15,11 +15,12 @@ npm run dev
 打开 `http://127.0.0.1:4173/`。修改网页文件后刷新即可；按 Ctrl+C 停止。`npm run dev -- --port 4174` 可更换端口。
 
 ```text
+npm run content
 npm run check
 npm run build
 ```
 
-前者检查内容与素材，后者生成只包含公开运行资源的 `dist/`。构建不会发布网站。原始 CV 和文档不会进入该目录。
+修改 `content/profile.json` 后先运行 `npm run content`，把资料同步到可索引的静态 HTML。`check` 检查内容一致性、素材与发布边界，`build` 生成只包含公开运行资源的 `dist/`。构建不会发布网站。原始 CV 和文档不会进入该目录。
 
 ## 目录
 
@@ -35,14 +36,18 @@ npm run build
 | [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md) | 工作区基线与后续改版入口 |
 | `private/cv-original.tex` | 本机原始 CV，已加入 Git 忽略 |
 | `private/github-access.json` | 本机认证检查报告，不含 token，已忽略 |
-| `index.html` | 当前旧网站入口，后续改版从这里开始 |
+| `index.html` | 完整静态主页；带标记的资料区由 JSON 生成 |
+| `assets/css/main.css` | 排版、响应式布局和减少动态效果的样式 |
+| `assets/js/main.js` | 奶龙互动、场景切换、详情展开和动画偏好 |
+| `assets/images/` | 可追溯的 640 / 1280 / 1672 px WebP 衍生资源 |
+| `_config.yml` | GitHub Pages 根目录发布时排除工作资料 |
 | `scripts/` | 无依赖开发工具与本机 GitHub 认证辅助脚本 |
 
 ## 交给 Codex
 
 在这个目录打开任务即可。可直接使用：
 
-> 读取 AGENTS.md，基于 content/profile.json 和 figs/ 完成主页重设计，先给我本地预览。
+> 读取 AGENTS.md 和 docs/PROJECT_STATUS.md，在当前奶龙 × EVA 主页上继续修改，先给我本地预览。
 
 ## 来源
 

@@ -13,7 +13,11 @@
       "height": 941,
       "bytes": 2180582,
       "sha256": "5c718ca703ee867c1d45061fe8a7b8e4d6effb8e54c02700b0bee41373f95d08",
-      "derivatives": []
+      "derivatives": [
+        "assets/images/shadow-640.webp",
+        "assets/images/shadow-1280.webp",
+        "assets/images/shadow-1672.webp"
+      ]
     },
     {
       "id": "crosswalk",
@@ -25,7 +29,11 @@
       "height": 941,
       "bytes": 1923365,
       "sha256": "d5d43100c2d1486e6e0f0772a44bce098f0ef858b094d1517ee7b9ff60efef1c",
-      "derivatives": []
+      "derivatives": [
+        "assets/images/crosswalk-640.webp",
+        "assets/images/crosswalk-1280.webp",
+        "assets/images/crosswalk-1672.webp"
+      ]
     },
     {
       "id": "red-sea",
@@ -61,7 +69,11 @@
       "height": 941,
       "bytes": 2875467,
       "sha256": "88c2657516398221e97e6797cb23686e7eeeba29a940185291f05df674394ff8",
-      "derivatives": []
+      "derivatives": [
+        "assets/images/shore-640.webp",
+        "assets/images/shore-1280.webp",
+        "assets/images/shore-1672.webp"
+      ]
     }
   ]
 }

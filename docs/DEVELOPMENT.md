@@ -13,6 +13,7 @@
 | --- | --- |
 | `npm run dev` | 在 `127.0.0.1:4173` 提供工作树中的网页资源，刷新即可看到修改 |
 | `npm run dev -- --port 4174` | 指定其他本地端口 |
+| `npm run content` | 从公开 JSON 同步 `index.html` 的标记资料区 |
 | `npm run check` | 校验资料结构、素材哈希、研究关联、公开路径与 Git 文件边界 |
 | `npm run build` | 重新生成 `dist/`，只复制公开运行资源，不发布 |
 | `git diff --check` | 检查已跟踪改动中的空白问题 |
@@ -23,6 +24,22 @@
 `scripts/site-files.mjs` 定义公开运行资源：`index.html`、`assets/` 下允许的文件、`content/profile.json`，以及存在时的 favicon、robots、sitemap、CNAME、`.nojekyll`。文档和原图不在构建输出中。需要上线的参考图必须先制作/复制到 `assets/images/` 并更新对应引用。
 
 构建只重建已验证位于工作区内的 `dist/`，遇到符号链接会拒绝覆盖。开发服务器和构建脚本的资源边界保持一致。
+
+## 页面实现与维护
+
+- `assets/css/main.css`：暖白/黑/红/黄排版，760 px 与 1100 px 响应式断点，键盘焦点和 reduced-motion 样式。
+- `assets/js/main.js`：Pointer Events 拖拽、带阻尼的回弹、Canvas 六边形力场与粒子；场景按钮与横向滑动、原生 details 的高度动画、一次性滚动入场。动画在离开视口或切换标签页后停止；Canvas 像素密度上限为 2。
+- 拖动奶龙后松手回到起点；方向键移动，Enter / Space 触发力场，Escape 归位。手机在角色上拖动，图片区的纵向手势继续滚动网页。
+- 页脚 Motion 按钮保存本机偏好；系统 reduced-motion 优先，互动改用静态反馈。没有持续闪烁、自动播放声音或分析追踪。
+- 学术内容由 `scripts/profile-html.mjs` 生成到 HTML。修改 JSON 后运行 `npm run content`；`check` 和 `build` 校验内容同步，不依赖浏览器运行时加载资料。
+- 三幅原图仅缩放/压缩为 WebP，9 个衍生文件在 `figs/manifest.json` 中登记。原图哈希保持不变。互动角色是代码绘制的 SVG 艺术素材。
+- 浏览器验收临时脚本和截图位于被忽略的 `.cache/`、`artifacts/`。它们不属于运行依赖，也不进入提交或构建。
+
+## GitHub Pages 资源边界
+
+当前 Pages 使用 Jekyll 从 `main` 根目录发布，`_config.yml` 排除 `docs/`、`figs/`、`scripts/`、私有目录及开发文件，避免根目录发布把工作材料作为网站资源提供。不能添加 `.nojekyll` 绕过这些排除。`check` 会检查每个可提交文件是否属于运行资源、Jekyll 默认忽略路径或明确排除项；`_config.yml` 是发布配置，不进入 `dist/`。
+
+排除规则参考 [Jekyll 官方配置说明](https://jekyllrb.com/docs/configuration/options/)。发布后还需要检查首页/资源返回 200、工作目录 URL 返回 404；不把本地构建通过当作远端验收。
 
 ## 凭据
 

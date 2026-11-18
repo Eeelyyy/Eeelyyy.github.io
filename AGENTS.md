@@ -4,7 +4,7 @@
 
 - 为 Yishen Liu 持续开发个人研究主页。仓库是 `Eeelyyy/Eeelyyy.github.io`，沿用 `https://eeelyyy.github.io/` 和 GitHub Pages。
 - 用户要求完整重设计；视觉来源是本仓库 `figs/`，个人内容来源是用户提供的 CV。不要沿用旧页面的姓名顺序、旧邮箱或卡片样式作为新版依据。
-- 当前工作区已完成准备；`index.html` 仍是远端旧页面。不要把准备工作描述为已完成改版或已上线。
+- 当前已完成奶龙 × EVA 极简主页改版；`docs/PROJECT_STATUS.md` 记录实际验收和发布状态。后续交付仍须区分本地、提交、推送与上线。
 - 与用户用中文交流；网页初始使用英文，与 CV 一致。这是可调整的默认选择。
 
 ## 开始工作时读取
@@ -31,13 +31,14 @@
 - 原始 PNG 不改名、不覆盖。上线用的压缩、裁切版本放在 `assets/images/`；用 `figs/manifest.json` 追溯来源。图中角色是艺术素材，不代表用户头像或研究成果。
 - 保持论文、经历与联系方式清晰可读。桌面和手机均可使用；保留键盘焦点、语义标题、替代文本以及 reduced-motion 支持。
 - 默认使用轻量静态 HTML/CSS/JavaScript，兼容 GitHub Pages。不要为这项展示需求引入服务器、数据库、账号系统或另一个托管平台。
-- 当前 `index.html` 使用内联样式与脚本。真正改版时可拆到 `assets/css/`、`assets/js/`；如数据通过 JavaScript 加载，个人简介和重要链接仍应有可索引的 HTML。
+- 页面样式与交互位于 `assets/css/`、`assets/js/`。修改 `content/profile.json` 后运行 `npm run content`，通过 `scripts/profile-html.mjs` 同步静态 HTML；不要手工修改生成区。简介、论文和重要链接无需浏览器 JavaScript 即可读取。
 - `npm run dev` 只提供明确允许的网页文件；`npm run build` 只打包公开运行资源。添加新的运行时目录时，同时更新 `scripts/site-files.mjs`、校验和文档。
 
 ## 常用命令与完成标准
 
 ```text
 npm run dev
+npm run content
 npm run check
 npm run build
 git diff --check

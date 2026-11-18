@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { extname, join } from 'node:path';
 import { isPublicPath, publicFiles, root, sourceFile } from './site-files.mjs';
+import { renderProfile } from './profile-html.mjs';
 
 const failures = [];
 const expect = (condition, message) => { if (!condition) failures.push(message); };
@@ -80,17 +81,32 @@ try {
   const publicNames = new Set(publicFiles());
   expect(publicNames.has('index.html'), 'index.html is missing.');
   const html = readFileSync(sourceFile('index.html'), 'utf8');
+  expect(renderProfile(html) === html, 'Profile HTML is stale. Run npm run content before checking or building.');
+  const ids = [...html.matchAll(/\bid="([^"]+)"/gu)].map(match => match[1]);
+  expect(new Set(ids).size === ids.length, 'HTML contains duplicate IDs.');
   for (const [, attribute, target] of html.matchAll(/\b(href|src)\s*=\s*["']([^"']*)["']/giu)) {
     if (/^(?:https?:|mailto:|tel:|data:|\/\/)/iu.test(target)) continue;
     if (target.startsWith('#')) {
       expect(target.length > 1, `${attribute}: remove empty anchor placeholders.`);
+      expect(ids.includes(target.slice(1)), `${attribute}: anchor target does not exist: ${target}`);
       continue;
     }
     const name = decodeURIComponent(target.split(/[?#]/u)[0]).replace(/^\//u, '').replace(/^\.\//u, '');
     if (name) expect(publicNames.has(name), `${attribute}: local resource is absent from the public build: ${name}`);
   }
+  for (const [, candidates] of html.matchAll(/\bsrcset="([^"]+)"/gu)) {
+    for (const candidate of candidates.split(',')) {
+      const name = candidate.trim().split(/\s+/u)[0];
+      expect(publicNames.has(name), `srcset: resource is absent from the public build: ${name}`);
+    }
+  }
   const gitFiles = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z'], { cwd: root, encoding: 'utf8' }).split('\0').filter(Boolean);
+  const pagesConfig = readFileSync(join(root, '_config.yml'), 'utf8');
+  const pagesExcludes = new Set([...pagesConfig.matchAll(/^  - (.+)$/gmu)].map(match => match[1]));
+  expect(!existsSync(join(root, '.nojekyll')), 'Root Pages publishing requires Jekyll exclusions; do not bypass them with .nojekyll.');
   for (const name of gitFiles) {
+    const top = name.split('/')[0];
+    expect(isPublicPath(name) || top.startsWith('.') || top.startsWith('_') || pagesExcludes.has(top), `Non-runtime file is not excluded from GitHub Pages: ${name}`);
     expect(!name.startsWith('private/') && (!/(^|\/)\.env(?:\.|$)/u.test(name) || name === '.env.example'), `Private file is eligible for commit: ${name}`);
     if (!textExtensions.has(extname(name)) && !['.gitignore', '.gitattributes'].includes(name)) continue;
     if (!existsSync(join(root, name))) continue;

@@ -1,0 +1,18 @@
+# GitHub Pages builds the main branch root with Jekyll.
+# Keep working materials out of the deployed website.
+exclude:
+  - AGENTS.md
+  - README.md
+  - docs
+  - figs
+  - scripts
+  - private
+  - package.json
+  - package-lock.json
+  - node_modules
+  - dist
+  - artifacts
+  - screenshots
+  - Gemfile
+  - Gemfile.lock
+  - vendor

@@ -4,7 +4,7 @@
 
 ## 2026-11-18 改版
 
-- 已替换旧页面，实现英文奶龙 × EVA 极简研究主页；当前本地完成，发布结果待最后记录。
+- 已替换旧页面，实现英文奶龙 × EVA 极简研究主页；已提交、推送并在 [eeelyyy.github.io](https://eeelyyy.github.io/) 上线。
 - 首屏红伞过街，三幅场景可切换；奶龙支持拖拽、弹性归位、眼睛跟随、点击 AT 力场和粒子。触屏、方向键、Enter / Space、Escape 均有对应操作。
 - 研究论文、项目详情、实习、教育、兴趣和联系信息由公开 JSON 生成到静态 HTML。保留 Incoming Ph.D. 的 Sep. 2027 (Expected)、ECCV Accepted、CVPR Submitted / Under review 以及研究/实习不同日期。
 - 未生成缺失的 CV PDF、头像、完整作者名单或论文图片；未新增学术事实。论文状态按用户 CV 保留，未独立核验。
@@ -21,7 +21,11 @@
 - 完整临时检查记录与截图保存在本机忽略目录 `artifacts/`，不提交。
 - 额外 14 项定向检查通过：跳转正文链接、实际 Tab 焦点、图片横向拖动、静止时动画循环完全停止，以及私有/工作文件 HTTP 404 和非 GET/HEAD 方法拒绝。
 - 已 fetch：远端没有新增冲突；现有凭据写权限及 Pages main 根目录配置已重新确认。
-- 完成发布后在本节记录提交、远端构建与实际 HTTP 验证。
+- 页面实现提交：`152710a0164b4d95ad60c5d7a263f8f0802183ee`，已正常推送到 `origin/main`，没有重写历史。
+- GitHub Pages API 报告该提交 `built`；[构建与部署记录](https://github.com/Eeelyyy/Eeelyyy.github.io/actions/runs/44278938575) 为 `completed / success`；对应 GitHub Pages deployment 为 `success`。
+- 线上首页 HTTP 200，浏览器实际读取新姓名、页面和奶龙点击效果。首页 HTML、CSS、JS、三张代表图片、公开 JSON、favicon 与本地资源哈希一致（文本按 Git LF 换行归一化）。线上控制台和运行时错误为 0。
+- `private/cv-original.tex`、`private/github-access.json`、`docs/CONTENT.md`、`figs/manifest.json`、`scripts/Connect-GitHub.ps1`、`AGENTS.md`、`package.json` 均核对为 404。后两项中的脚本与 AGENTS 请求初遇 CDN 503，分别重试及使用无缓存查询参数后得到 GitHub 404；没有将 503 当作排除成功。
+- 本次状态记录随后的提交只更新本文档，不改变已验收的网页资源。
 
 ## 以下为 2026-11-16 准备阶段历史
 

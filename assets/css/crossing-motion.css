@@ -1,0 +1,51 @@
+/* The crossing is a second use of its original repaired road image. Each
+   clipped band stays invisible until movement gives it a small displacement. */
+.crossing-slice {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  background-image: var(--crossing-image);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  clip-path: inset(var(--slice-top) 0 var(--slice-bottom) 0);
+  transform: translate3d(var(--slice-x, 0px), var(--slice-y, 0px), 0);
+  transition: transform 220ms cubic-bezier(.2, .7, .2, 1);
+}
+.stage:not(.is-engaged) .crossing-slice { visibility: hidden; }
+.stage.is-engaged .crossing-slice { transition: none; will-change: transform; }
+.subject { z-index: 2; }
+#effects { z-index: 3; }
+
+.subject .umbrella-echo {
+  z-index: 1;
+  opacity: 0;
+  clip-path: polygon(
+    49% 2%, 57% 4%, 66% 8%, 75% 15%, 84% 24%, 93% 34%, 98% 43%, 100% 48%,
+    96% 52%, 89% 55%, 79% 57%, 69% 59%, 60% 62%, 50% 66%, 40% 62%, 31% 59%,
+    21% 57%, 11% 55%, 4% 52%, 0 48%, 2% 43%, 7% 34%, 16% 24%, 25% 15%,
+    34% 8%, 43% 4%
+  );
+  transform-origin: 46.6% 15.9%;
+  filter: saturate(1.16) drop-shadow(0 0 5px #c83e29a6);
+}
+.subject.is-reacting .umbrella-echo--a { animation: umbrella-echo-a 580ms cubic-bezier(.2, .72, .2, 1) both; }
+.subject.is-reacting .umbrella-echo--b { animation: umbrella-echo-b 580ms cubic-bezier(.2, .72, .2, 1) 80ms both; }
+
+@keyframes umbrella-echo-a {
+  0%, 100% { opacity: 0; transform: translate(0, 0) rotate(0); }
+  17% { opacity: .64; transform: translate(-6%, -1.6%) rotate(-2deg); }
+  54% { opacity: .25; transform: translate(5%, .7%) rotate(1.5deg); }
+}
+@keyframes umbrella-echo-b {
+  0%, 100% { opacity: 0; transform: translate(0, 0) rotate(0); }
+  22% { opacity: .46; transform: translate(7%, 1.2%) rotate(2.2deg); }
+  58% { opacity: .17; transform: translate(-4%, -1%) rotate(-1deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crossing-slice { transition: none; }
+  .subject .umbrella-echo { animation: none; opacity: 0; }
+}

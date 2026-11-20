@@ -46,7 +46,10 @@ export function profileSections() {
     affiliations.push(`${currentRole.role} at ${workplace}`);
   }
 
-  const hero = `<h1 id="hero-title">${escape(person.name)}</h1>
+  const nameParts = person.name.trim().split(/\s+/u);
+  const lastWord = nameParts.pop();
+  const displayName = [...nameParts.map(escape), `<span class="name-ink">${escape(lastWord)}</span>`].join(' ');
+  const hero = `<h1 id="hero-title">${displayName}</h1>
         ${affiliations.map(line => `<p class="hero-identity">${escape(line)}</p>`).join('\n        ')}
         <nav class="profile-links" aria-label="Profile links">
           <a href="mailto:${escape(person.email)}">Email</a>

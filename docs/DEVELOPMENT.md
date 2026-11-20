@@ -27,9 +27,9 @@
 
 ## 页面实现与维护
 
-- `assets/css/main.css`：暖白/黑/红/黄排版，760 px 与 1100 px 响应式断点，键盘焦点和 reduced-motion 样式。
+- `assets/css/main.css` 管理排版、响应式布局和页尾接缝。`plates-motion.css` 与 `crossing-motion.css` 分别管理首屏两侧的原画切片。
 - `assets/js/main.js`：过街场景的角色图层拖动、点击与键盘互动，以及页脚动效暂停。
-- `assets/js/plates.js`：左侧四幅参考图切换。
+- `assets/js/plates.js` 管理左侧四幅原画的切换与拖动。`assets/js/afterword.js` 将页尾原生滑块的数值映射到照片裁切位置；禁用脚本时展示完整拼贴。
 - 首屏的街面底图、奶龙身体与雨伞相互独立；拖动角色可查看重组图层的显影效果，点击雨伞触发雨纹动画。键盘方向键移动，Enter / Space 点击，Escape 归位，触屏可拖动。
 - 页脚按钮可暂停动效；系统 `prefers-reduced-motion` 优先生效。研究详情使用浏览器原生 `<details>` 展开。
 - 学术内容由 `scripts/profile-html.mjs` 生成到 HTML。修改 JSON 后运行 `npm run content`；`check` 和 `build` 校验内容同步，不依赖浏览器运行时加载资料。

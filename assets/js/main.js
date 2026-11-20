@@ -7,6 +7,7 @@ const status = document.querySelector('#play-status');
 
 if (stage && subject && canvas) {
   const context = canvas.getContext('2d');
+  const street = stage.querySelector('.street');
   const systemReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const motionButton = document.querySelector('#motion-toggle');
   let pausedByUser = false;
@@ -14,6 +15,40 @@ if (stage && subject && canvas) {
   let motionReduced = systemReducedMotion.matches || pausedByUser;
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
   const motion = { x: 0, y: 0, vx: 0, vy: 0, targetX: 0, targetY: 0, tilt: 0 };
+  const roadSlices = [];
+  const stripeBands = [
+    [1.7, 7.9, .56], [12.9, 19.7, -.76], [25.1, 31.5, .92], [37.2, 43.5, -.44],
+    [49.5, 56, .72], [62.1, 68.8, -.94], [75, 82, .54], [88.3, 95.7, -.66],
+  ];
+  if (street) {
+    const syncRoadImage = () => {
+      stage.style.setProperty('--crossing-image', `url("${street.currentSrc || street.src}")`);
+    };
+    street.addEventListener('load', syncRoadImage);
+    syncRoadImage();
+  }
+  stripeBands.forEach(([top, bottom, depth]) => {
+    const slice = document.createElement('span');
+    slice.className = 'crossing-slice';
+    slice.setAttribute('aria-hidden', 'true');
+    slice.style.setProperty('--slice-top', `${top}%`);
+    slice.style.setProperty('--slice-bottom', `${100 - bottom}%`);
+    stage.insertBefore(slice, subject);
+    roadSlices.push({ element: slice, depth, x: '', y: '' });
+  });
+
+  const umbrella = subject.querySelector('.umbrella-layer');
+  if (umbrella) {
+    ['a', 'b'].forEach(name => {
+      const echo = umbrella.cloneNode(false);
+      echo.classList.remove('umbrella-layer');
+      echo.classList.add('umbrella-echo', `umbrella-echo--${name}`);
+      echo.alt = '';
+      echo.setAttribute('aria-hidden', 'true');
+      subject.insertBefore(echo, umbrella);
+    });
+  }
+
   let bounds;
   let frame = 0;
   let lastTime = 0;
@@ -48,6 +83,22 @@ if (stage && subject && canvas) {
   function drawSubject() {
     subject.style.translate = `${motion.x.toFixed(2)}px ${motion.y.toFixed(2)}px`;
     subject.style.rotate = `${motion.tilt.toFixed(2)}deg`;
+    const engaged = Boolean(pointer) || Math.abs(motion.x) + Math.abs(motion.y)
+      + Math.abs(motion.vx) + Math.abs(motion.vy) + Math.abs(motion.targetX) + Math.abs(motion.targetY) > .025;
+    stage.classList.toggle('is-engaged', engaged);
+
+    if (bounds) {
+      const horizontal = clamp(motion.x / (bounds.stageWidth * .2 || 1), -1, 1);
+      const vertical = clamp(motion.y / (bounds.stageHeight * .2 || 1), -1, 1);
+      const maxX = clamp(bounds.stageWidth * .022, 6, 14);
+      const maxY = clamp(bounds.stageHeight * .003, .7, 2);
+      roadSlices.forEach(slice => {
+        const x = `${(horizontal * maxX * slice.depth).toFixed(2)}px`;
+        const y = `${(vertical * maxY * slice.depth).toFixed(2)}px`;
+        if (slice.x !== x) slice.element.style.setProperty('--slice-x', slice.x = x);
+        if (slice.y !== y) slice.element.style.setProperty('--slice-y', slice.y = y);
+      });
+    }
   }
 
   function movementLimits() {

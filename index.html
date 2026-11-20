@@ -13,9 +13,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://eeelyyy.github.io/">
   <link rel="icon" href="assets/images/umbrella-icon.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/main.css?v=2">
-  <script defer src="assets/js/main.js?v=2"></script>
-  <script defer src="assets/js/plates.js"></script>
+  <link rel="stylesheet" href="assets/css/main.css?v=3">
+  <link rel="stylesheet" href="assets/css/plates-motion.css?v=3">
+  <link rel="stylesheet" href="assets/css/crossing-motion.css?v=3">
+  <script defer src="assets/js/main.js?v=3"></script>
+  <script defer src="assets/js/plates.js?v=3"></script>
+  <script defer src="assets/js/afterword.js?v=3"></script>
   <title>Yishen Liu · Research</title>
 </head>
 <body id="top">
@@ -38,7 +41,7 @@
         <div class="identity">
           <p class="discipline">Computer vision <span>/</span> Generative models</p>
           <!-- profile:hero:start -->
-<h1 id="hero-title">Yishen Liu</h1>
+<h1 id="hero-title">Yishen <span class="name-ink">Liu</span></h1>
         <p class="hero-identity">M.Eng. student in Vehicle Engineering at Beijing Institute of Technology</p>
         <p class="hero-identity">Research Intern at vivo Blueimage Lab</p>
         <nav class="profile-links" aria-label="Profile links">
@@ -76,7 +79,7 @@
           </div>
           <span class="plate-title" aria-live="polite">Red shore</span>
         </div>
-        <p class="play-help" id="play-help" hidden>Drag the figure · Tap the umbrella<span class="sr-only">. Use the arrow keys to move it, Enter or Space to tap, and Escape to return.</span></p>
+        <p class="play-help" id="play-help" hidden>Slide the artwork · Drag the figure · Tap the umbrella<span class="sr-only">. With the figure focused, use the arrow keys to move it, Enter or Space to tap, and Escape to return.</span></p>
         <span class="sr-only" id="play-status" role="status"></span>
       </div>
     </section>
@@ -164,8 +167,15 @@
 <p>I enjoy fitness, badminton, and volleyball.</p>
           <p>Represented Beijing Institute of Technology&#39;s badminton team.</p>
 <!-- profile:about:end -->
+          <label class="seam-help" for="artwork-seam" hidden>Drag the seam to reveal the original.</label>
         </div>
-        <div class="afterword-image" role="img" aria-label="A silhouette in a shaft of light, beside a fragment of the red shoreline."></div>
+        <div class="afterword-image" id="afterword-art">
+          <div class="afterword-plates" role="img" aria-label="A black silhouette stands against a pale wall. A diagonal cut opens onto red surf and fragments of cyan rings.">
+            <div class="afterword-original"></div>
+          </div>
+          <input id="artwork-seam" type="range" min="0" max="100" value="62" hidden>
+          <div class="seam-marker" aria-hidden="true" hidden><i></i></div>
+        </div>
       </div>
     </section>
   </main>

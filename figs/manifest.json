@@ -16,7 +16,9 @@
       "derivatives": [
         "assets/images/shadow-640.webp",
         "assets/images/shadow-1280.webp",
-        "assets/images/shadow-1672.webp"
+        "assets/images/shadow-1672.webp",
+        "assets/images/afterword-before.webp",
+        "assets/images/afterword-after.webp"
       ]
     },
     {
@@ -86,7 +88,8 @@
       "bytes": 2728082,
       "sha256": "98a903029fa79acc68621060b5721576efbe756662ed05d6e441a72bcdddedbe",
       "derivatives": [
-        "assets/images/vortex-800.webp"
+        "assets/images/vortex-800.webp",
+        "assets/images/afterword-after.webp"
       ]
     },
     {
@@ -102,7 +105,8 @@
       "derivatives": [
         "assets/images/shore-640.webp",
         "assets/images/shore-1280.webp",
-        "assets/images/shore-1672.webp"
+        "assets/images/shore-1672.webp",
+        "assets/images/afterword-after.webp"
       ]
     }
   ]

@@ -32,8 +32,34 @@
       "derivatives": [
         "assets/images/crosswalk-640.webp",
         "assets/images/crosswalk-1280.webp",
-        "assets/images/crosswalk-1672.webp"
-      ]
+        "assets/images/crosswalk-1672.webp",
+        "assets/images/crosswalk-clean-1280.webp",
+        "assets/images/crosswalk-clean-1672.webp",
+        "assets/images/nailong-body.png",
+        "assets/images/nailong-umbrella.png",
+        "assets/images/umbrella-icon.png"
+      ],
+      "interactiveLayers": {
+        "canvas": [
+          1672,
+          941
+        ],
+        "frame": {
+          "left": 855,
+          "top": 287,
+          "width": 193,
+          "height": 271
+        },
+        "umbrellaPivot": {
+          "x": 90,
+          "y": 43
+        },
+        "layersBackToFront": [
+          "nailong-body.png",
+          "nailong-umbrella.png"
+        ],
+        "method": "Contours and hue-gated alpha extracted from original pixels; low-saturation road removed; background filled from a matching crosswalk stripe."
+      }
     },
     {
       "id": "red-sea",
@@ -45,7 +71,9 @@
       "height": 941,
       "bytes": 2310371,
       "sha256": "dd969eb251523640047444766dd1203a88816c8c09142c076054c6cc89f1547f",
-      "derivatives": []
+      "derivatives": [
+        "assets/images/red-sea-800.webp"
+      ]
     },
     {
       "id": "vortex",
@@ -57,7 +85,9 @@
       "height": 941,
       "bytes": 2728082,
       "sha256": "98a903029fa79acc68621060b5721576efbe756662ed05d6e441a72bcdddedbe",
-      "derivatives": []
+      "derivatives": [
+        "assets/images/vortex-800.webp"
+      ]
     },
     {
       "id": "shore",

@@ -28,11 +28,12 @@
 ## 页面实现与维护
 
 - `assets/css/main.css`：暖白/黑/红/黄排版，760 px 与 1100 px 响应式断点，键盘焦点和 reduced-motion 样式。
-- `assets/js/main.js`：Pointer Events 拖拽、带阻尼的回弹、Canvas 六边形力场与粒子；场景按钮与横向滑动、原生 details 的高度动画、一次性滚动入场。动画在离开视口或切换标签页后停止；Canvas 像素密度上限为 2。
-- 拖动奶龙后松手回到起点；方向键移动，Enter / Space 触发力场，Escape 归位。手机在角色上拖动，图片区的纵向手势继续滚动网页。
-- 页脚 Motion 按钮保存本机偏好；系统 reduced-motion 优先，互动改用静态反馈。没有持续闪烁、自动播放声音或分析追踪。
+- `assets/js/main.js`：过街场景的角色图层拖动、点击与键盘互动，以及页脚动效暂停。
+- `assets/js/plates.js`：左侧四幅参考图切换。
+- 首屏的街面底图、奶龙身体与雨伞相互独立；拖动角色可查看重组图层的显影效果，点击雨伞触发雨纹动画。键盘方向键移动，Enter / Space 点击，Escape 归位，触屏可拖动。
+- 页脚按钮可暂停动效；系统 `prefers-reduced-motion` 优先生效。研究详情使用浏览器原生 `<details>` 展开。
 - 学术内容由 `scripts/profile-html.mjs` 生成到 HTML。修改 JSON 后运行 `npm run content`；`check` 和 `build` 校验内容同步，不依赖浏览器运行时加载资料。
-- 三幅原图仅缩放/压缩为 WebP，9 个衍生文件在 `figs/manifest.json` 中登记。原图哈希保持不变。互动角色是代码绘制的 SVG 艺术素材。
+- 五张原图未覆盖或改名。网页使用的原画、清理后的过街背景及独立身体/雨伞资源都在 `figs/manifest.json` 中关联到来源。
 - 浏览器验收临时脚本和截图位于被忽略的 `.cache/`、`artifacts/`。它们不属于运行依赖，也不进入提交或构建。
 
 ## GitHub Pages 资源边界

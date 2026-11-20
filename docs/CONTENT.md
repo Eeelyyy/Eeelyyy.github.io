@@ -12,12 +12,12 @@
 
 | 数据字段 | 推荐呈现 |
 | --- | --- |
-| `person` | 姓名、简介、研究兴趣、联系链接 |
-| `publications` | Selected Publications；同时展示清楚的录用/投稿状态 |
-| `research` | Research / Projects；与论文通过 ID 关联 |
-| `internships` | Experience；不要与项目时间混为一谈 |
-| `education` | Education；未来入学须保留 Expected 标签 |
-| `skills`、`interests`、`otherExperience` | 可简化放在 About 的补充信息中 |
+| `person` | 姓名、学位与实习身份、简介、研究兴趣、联系链接 |
+| `publications` | Selected publications；同时展示清楚的录用/投稿状态 |
+| `research` | 与论文按 ID 关联，展开 Project details 可查看项目主题、机构、日期与方法 |
+| `internships` | Experience；与研究项目日期分开展示 |
+| `education` | Education；未来入学保留 Expected 日期 |
+| `interests`、`otherExperience` | 放在简短的 Outside research 一节 |
 | `news` | 当前为空；不根据年份臆造新闻日期 |
 
 `person.bio` 是根据 CV 整理的简短英文简介；`bioNote`、`source` 和 `evaluationContext.note` 是编辑元数据，不要机械显示给网站访客。网页不必逐字展示全部 CV 条目，但不能改变事实。
@@ -44,7 +44,7 @@
 
 1. 接到新 CV 时保留原文于 `private/`，更新 `profile.json` 的相关条目和 `source` 日期。
 2. 保持现有稳定 ID，检查论文与研究项目的关联；日期字段使用 `YYYY-MM`，显示用 `dateLabel`。
-3. 运行 `npm run content`，由 `scripts/profile-html.mjs` 把公开资料写入 `index.html` 的 `profile:*` 标记区。修改展示方式时编辑生成器；修改事实时编辑 JSON。网页无需浏览器脚本或 JSON 请求即可显示简介、论文、履历与联系入口。
+3. 运行 `npm run content`，由 `scripts/profile-html.mjs` 把公开资料写入 `index.html` 的 `profile:*` 标记区。姓名、两行身份与三个联系入口位于首页左栏；完整简介和研究兴趣位于 About me；论文状态和资源、履历与教育、兴趣和联系信息由相应标记区生成。修改展示方式时编辑生成器；修改事实时编辑 JSON。网页无需浏览器脚本或 JSON 请求即可读取这些资料。
 4. 运行 `npm run check`。缺少公开链接时隐藏按钮，不生成占位 URL。
 
-当前主页不展示缺少完整实验上下文的指标，也不生成不存在的 PDF 下载或论文配图。研究项目日期保留在论文的“Inside the research”展开区；实习日期在 Journey 独立显示。`check` 与 `build` 会拒绝 JSON 和静态 HTML 不一致的版本。
+研究项目日期在论文的“Project details”原生展开区显示；不同实习日期仍在 Experience 中单独显示。完整实验条件缺失时不展示性能数字，不生成不存在的 CV PDF 下载或论文配图。`check` 与 `build` 会拒绝 JSON 和静态 HTML 不一致的版本。

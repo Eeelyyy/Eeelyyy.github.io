@@ -2,7 +2,7 @@
 
 这是 `Eeelyyy/Eeelyyy.github.io` 的本地开发工作区，网站继续使用 [eeelyyy.github.io](https://eeelyyy.github.io/)。
 
-奶龙 × EVA 极简研究主页：暖白留白、黑白图像、红黄点色，配有可拖拽的奶龙、弹性归位、点击 AT 力场和三幅艺术场景。英文资料来自用户 CV；继续使用 GitHub Pages。
+奶龙 × EVA 极简研究主页：页面使用五张参考图做素材来源，右侧过街画面将原图中的斑马线、奶龙和雨伞拆层重组，左侧可切换四幅原画。拖动角色可看到图层显影效果，点击触发雨纹波动。英文资料来自用户 CV，继续使用 GitHub Pages。
 
 ## 开始
 
@@ -38,8 +38,9 @@ npm run build
 | `private/github-access.json` | 本机认证检查报告，不含 token，已忽略 |
 | `index.html` | 完整静态主页；带标记的资料区由 JSON 生成 |
 | `assets/css/main.css` | 排版、响应式布局和减少动态效果的样式 |
-| `assets/js/main.js` | 奶龙互动、场景切换、详情展开和动画偏好 |
-| `assets/images/` | 可追溯的 640 / 1280 / 1672 px WebP 衍生资源 |
+| `assets/js/main.js` | 奶龙拖动、点击互动和动画偏好 |
+| `assets/js/plates.js` | 左侧四幅原画切换 |
+| `assets/images/` | 原画衍生图、清理后的过街背景和奶龙/雨伞分层素材 |
 | `_config.yml` | GitHub Pages 根目录发布时排除工作资料 |
 | `scripts/` | 无依赖开发工具与本机 GitHub 认证辅助脚本 |
 
